@@ -1,0 +1,37 @@
+@using datatable_test.Controllers
+@model Group;
+
+@if (Model == null) {
+   <strong>Null group</strong>
+   return;
+}
+<div class"d-flex flex-row">
+    <p>
+        <strong>@Html.DisplayNameFor(x => x.Name):</strong>
+        @Html.DisplayFor(x => x.Name)
+    </p>
+
+    <p>
+        <strong>@Html.DisplayNameFor(x => x.Type):</strong>
+        @Html.DisplayFor(x => x.Type)
+    </p>
+
+    <p>
+        <strong>@Html.DisplayNameFor(x => x.Created):</strong>
+        @Html.DisplayFor(x => x.Created)
+    </p>
+
+    <p>
+        <strong>@Html.DisplayNameFor(x => x.Edited):</strong>
+        @Html.DisplayFor(x => x.Edited)
+    </p>
+
+    <p>
+        <strong>@Html.DisplayNameFor(x => x.ModifiedById):</strong>
+        @Html.DisplayFor(x => x.ModifiedById)
+    </p>
+
+    @if (ViewBag.Skip == null) {
+        @Html.ActionLink("->", "Group", new { Name = Model.Name})
+    }
+</div>

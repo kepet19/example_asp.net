@@ -1,0 +1,6 @@
+@model Group;
+@{
+    ViewData["Title"] = $"Show group: {Model?.Name}";
+}
+
+@Html.DisplayForModel(new { Skip = true })

@@ -1,0 +1,12 @@
+@model List<Group>;
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Chose a group</p>
+    @foreach (Group group in Model) {
+        <div class="">
+        @Html.DisplayFor(_ => group)
+        </div>
+    }
+</div>
