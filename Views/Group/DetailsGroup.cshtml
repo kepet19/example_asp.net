@@ -1,0 +1,6 @@
+@model Tuple<Group, User>;
+@{
+    ViewData["Title"] = $"Show group: {Model?.Item1?.Name}";
+}
+
+@Html.DisplayForModel(new { Skip = true })

@@ -16,14 +16,27 @@ public class GroupController : Controller
     public IActionResult Index()
     {
         _logger.LogInformation("Index");
-        return View(get_groups().Select(x => x.Item1));
+        return View(get_groups().Select(x => x.Item1).ToArray());
+    }
+
+    public IActionResult DetailsGroup(String name)
+    {
+        _logger.LogInformation($"Group name: {name}");
+
+        var tuple = get_groups().FirstOrDefault(x => x.Item1.Name == name);
+
+        _logger.LogInformation($"Found: {tuple}");
+        return View(tuple);
     }
 
     public IActionResult Group(String name)
     {
         _logger.LogInformation($"Group name: {name}");
 
-        return View(get_groups().FirstOrDefault(x => x.Item1.Name == name));
+        var group = get_groups().FirstOrDefault(x => x.Item1.Name == name)?.Item1;
+
+        _logger.LogInformation($"Found: {group}");
+        return View(group);
     }
 
 
