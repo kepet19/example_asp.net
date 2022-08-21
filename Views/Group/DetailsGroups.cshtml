@@ -1,0 +1,13 @@
+@model List<Tuple<Group, User>>;
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Chose a group</p>
+    @foreach (Tuple<Group, User> collection in Model) {
+        <div class="">
+            @Html.DisplayFor(_ => collection.Item1)
+            @Html.DisplayFor(_ => collection)
+        </div>
+    }
+</div>

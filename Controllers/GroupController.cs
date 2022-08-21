@@ -16,7 +16,7 @@ public class GroupController : Controller
     public IActionResult Index()
     {
         _logger.LogInformation("Index");
-        return View(get_groups().Select(x => x.Item1).ToArray());
+        return View(get_groups().Select(x => x.Item1).ToList());
     }
 
     public IActionResult DetailsGroup(String name)
@@ -24,8 +24,17 @@ public class GroupController : Controller
         _logger.LogInformation($"Group name: {name}");
 
         var tuple = get_groups().FirstOrDefault(x => x.Item1.Name == name);
-
         _logger.LogInformation($"Found: {tuple}");
+
+        return View(tuple);
+    }
+
+    public IActionResult DetailsGroups(String name)
+    {
+        _logger.LogInformation($"DetailsGroups");
+
+        var tuple = get_groups();
+
         return View(tuple);
     }
 
